@@ -1,0 +1,223 @@
+---
+title: Idea Repositories
+---
+
+# Idea Repositories
+
+Every idea in Humanet lives as a **structured repository** with standardized documentation and optional supporting artifacts.
+
+## What is an Idea Repository?
+
+Think of it as a GitHub repository, but optimized for the ideation and planning phase. It contains:
+
+- **Required documentation** that defines the problem and solution
+- **Optional artifacts** like research, diagrams, and prototypes
+- **Version history** showing how the idea evolved
+- **Collaboration logs** of discussions and decisions
+- **Metadata** like domains, contributors, and lifecycle stage
+
+## Required Files (Provisional Phase)
+
+Every new idea repository must include these files:
+
+### `problem_statement.md`
+
+**Purpose:** Define the problem you're solving
+
+**Key questions to answer:**
+- What problem exists today?
+- Who experiences this problem?
+- What is the impact of this problem?
+- Why hasn't it been solved yet?
+- What constraints exist?
+
+**Template:**
+```markdown
+# Problem Statement
+
+## The Problem
+[Clear description of the problem]
+
+## Who It Affects
+[Target users/audience/stakeholders]
+
+## Current Impact
+[Consequences of the problem existing]
+
+## Why It Persists
+[Barriers to solving it]
+
+## Constraints
+[Technical, financial, social, or other limitations]
+```
+
+### `idea.md`
+
+**Purpose:** Describe your proposed solution
+
+**Key questions to answer:**
+- What is your core concept?
+- How does it solve the problem?
+- What makes it different/better?
+- What are the key features or components?
+- What assumptions are you making?
+
+**Template:**
+```markdown
+# The Idea
+
+## Core Concept
+[High-level description of your solution]
+
+## How It Works
+[Explanation of the mechanism/approach]
+
+## Key Features
+1. [Feature 1]
+2. [Feature 2]
+3. [Feature 3]
+
+## Differentiation
+[What makes this unique or better than alternatives]
+
+## Assumptions
+[What you're assuming to be true]
+```
+
+### `scope.md`
+
+**Purpose:** Define boundaries and success criteria
+
+**Key questions to answer:**
+- What is in scope?
+- What is explicitly out of scope?
+- Who are the primary users?
+- What defines success?
+- What are the key milestones?
+
+**Template:**
+```markdown
+# Scope
+
+## In Scope
+- [What this idea includes]
+- [Core features]
+- [Target audience]
+
+## Out of Scope
+- [What this idea does NOT include]
+- [Future considerations]
+- [Deliberate exclusions]
+
+## Success Criteria
+- [ ] [Measurable outcome 1]
+- [ ] [Measurable outcome 2]
+- [ ] [Measurable outcome 3]
+
+## Milestones
+1. **[Phase 1]**: [Description]
+2. **[Phase 2]**: [Description]
+3. **[Phase 3]**: [Description]
+```
+
+### `README.md`
+
+**Purpose:** Entry point and navigation for collaborators
+
+**Should include:**
+- Brief overview (2-3 sentences)
+- Links to key files
+- Current status/lifecycle stage
+- How to contribute
+- Contact information
+
+## Optional Files & Artifacts
+
+### Research Materials
+- `research/` — Papers, articles, case studies
+- `literature-review.md` — Summary of existing research
+- `market-analysis.md` — Competitive landscape
+
+### Design & Planning
+- `architecture.md` — System design and structure
+- `diagrams/` — Visual representations (see [Diagramming Standards](/standards/diagramming))
+- `user-stories.md` — Use cases and scenarios
+- `technical-spec.md` — Detailed technical planning
+
+### Data & Analysis
+- `datasets/` — Relevant datasets
+- `data-analysis.md` — Findings and insights
+- `experiments/` — Simulation results, prototypes
+
+### Collaboration
+- `discussions/` — Discussion threads on specific topics
+- `decisions.md` — Architecture decision records (ADRs)
+- `meeting-notes/` — Meeting summaries
+- `contributors.md` — List of contributors and roles
+
+### Code & Prototypes
+- `prototypes/` — Proof-of-concept implementations
+- `experiments/` — Code experiments
+- `simulations/` — Simulation scripts and results
+
+## Repository Structure Example
+
+```
+my-idea-repo/
+├── README.md (Required)
+├── problem_statement.md (Required)
+├── idea.md (Required)
+├── scope.md (Required)
+├── research/
+│   ├── literature-review.md
+│   └── papers/
+├── diagrams/
+│   ├── architecture.drawio
+│   └── user-flow.drawio
+├── discussions/
+│   ├── 001-database-choice.md
+│   └── 002-api-design.md
+├── prototypes/
+│   └── proof-of-concept/
+└── data/
+    └── user-survey-results.csv
+```
+
+## Best Practices
+
+### Documentation
+- **Be concise** — Aim for clarity over length
+- **Use markdown** — Consistent formatting aids readability
+- **Link liberally** — Connect related documents and discussions
+- **Update regularly** — Keep docs synchronized with decisions
+
+### Organization
+- **Meaningful names** — Use descriptive file and folder names
+- **Flat when possible** — Don't over-nest directories
+- **README everywhere** — Add README.md to subdirectories
+- **Separate concerns** — Group related files logically
+
+### Collaboration
+- **Document decisions** — Capture why choices were made
+- **Thread discussions** — Link discussions to files they generated
+- **Attribute contributions** — Give credit in commit messages
+- **Version milestones** — Tag significant versions
+
+## Validation Requirements
+
+For an idea to progress from **Provisional** to **Validated**, the AI evaluator checks:
+
+- All required files exist and are non-empty
+- Problem statement is clear and specific
+- Idea addresses the stated problem
+- Scope is well-defined with measurable success criteria
+- Documentation is internally consistent
+- Idea is sufficiently differentiated from existing ideas
+
+See [Quality Control](/concepts/quality-control) for detailed evaluation criteria.
+
+## Next Steps
+
+- Learn about [Lifecycle Management](/concepts/lifecycle-management)
+- Explore [Diagramming Standards](/standards/diagramming)
+- Read the [Create Your First Idea](/guides/create-first-idea) guide

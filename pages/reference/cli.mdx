@@ -1,0 +1,347 @@
+---
+title: CLI Reference
+---
+
+# Humanet CLI Reference
+
+Official command-line tool for initializing and managing Humanet idea documentation.
+
+## Installation
+
+### Quick Use (No Installation)
+
+```bash
+npx create-humanet
+```
+
+### Global Installation
+
+```bash
+npm install -g create-humanet
+```
+
+**Requirements:**
+- Node.js >= 18.0.0
+
+## Commands
+
+### `humanet init`
+
+Initialize a new `.humanet` folder in your current directory with the standard structure.
+
+#### Usage
+
+```bash
+# Interactive mode (recommended)
+humanet init
+
+# Non-interactive mode
+humanet init --name "My Idea" \
+  --tagline "A brief description" \
+  --domains ai-ml dev-tools \
+  --username myuser \
+  --repo https://github.com/username/repo \
+  --license CC-BY-4.0
+```
+
+#### Options
+
+| Option | Alias | Description | Default |
+|--------|-------|-------------|---------|
+| `--interactive` | `-i` | Interactive mode with prompts | `true` |
+| `--name <name>` | `-n` | Idea name | Prompted |
+| `--tagline <tagline>` | `-t` | One-line description | Prompted |
+| `--domains <domains...>` | `-d` | Space-separated domains | Prompted |
+| `--username <username>` | `-u` | GitHub username | Prompted |
+| `--repo <url>` | `-r` | Repository URL | Optional |
+| `--license <license>` | `-l` | License type | `CC-BY-4.0` |
+
+#### Example
+
+```bash
+humanet init --name "AI Code Review Assistant" \
+  --tagline "Intelligent code review powered by GPT-4" \
+  --domains ai-ml dev-tools \
+  --username johndoe
+```
+
+---
+
+### `humanet validate`
+
+Validate the structure and content of your `.humanet` folder.
+
+#### Usage
+
+```bash
+# Basic validation
+humanet validate
+
+# Verbose output with detailed results
+humanet validate --verbose
+```
+
+#### Options
+
+| Option | Alias | Description |
+|--------|-------|-------------|
+| `--verbose` | `-v` | Show detailed validation results |
+
+#### Checks Performed
+
+The validator checks:
+
+- Required files exist (`config.yml`, `problem_statement.md`, `idea.md`, `scope.md`)
+- `config.yml` follows the JSON schema
+- YAML syntax is valid
+- No placeholder text remains
+- Files have minimum content (not empty)
+- Domain values are valid
+- License is recognized
+
+#### Exit Codes
+
+- `0` — Validation passed
+- `1` — Validation failed
+
+#### Example Output
+
+```bash
+$ humanet validate --verbose
+
+Checking required files...
+  config.yml exists
+  problem_statement.md exists
+  idea.md exists
+  scope.md exists
+
+Validating config.yml...
+  Valid YAML syntax
+  Follows schema
+  All domains are valid
+  License is recognized
+
+Checking content...
+  No placeholder text found
+  All files have sufficient content
+
+Validation passed! Your .humanet folder is ready.
+```
+
+---
+
+### `humanet migrate`
+
+Migrate from legacy format to the current `.humanet` structure.
+
+#### Usage
+
+```bash
+humanet migrate
+
+# Verbose output
+humanet migrate --verbose
+```
+
+#### Options
+
+| Option | Alias | Description |
+|--------|-------|-------------|
+| `--verbose` | `-v` | Show detailed migration steps |
+
+**Status:** Coming soon. This feature is planned for a future release.
+
+---
+
+## What Gets Created
+
+When you run `humanet init`, the following structure is created:
+
+```
+.humanet/
+├── config.yml                    # Core metadata & configuration
+├── config.schema.json            # JSON Schema for validation
+├── README.md                     # Documentation guide
+├── problem_statement.md          # Required: Problem definition
+├── idea.md                       # Required: Solution description
+├── scope.md                      # Required: Boundaries & success metrics
+├── CHANGELOG.md                  # Idea evolution tracking
+├── CONTRIBUTORS.md               # Attribution & roles
+├── .gitignore                    # Ignore patterns
+│
+├── diagrams/                     # Visual documentation
+│   ├── README.md
+│   └── PLACEHOLDER.txt
+│
+├── research/                     # Supporting materials
+│   ├── README.md
+│   └── literature-review.md
+│
+├── discussions/                  # Decision logs & ADRs
+│   ├── README.md
+│   └── 001-tech-stack-selection.md
+│
+├── evaluations/                  # AI validation reports
+│   └── README.md
+│
+└── templates/                    # Reusable templates
+    ├── README.md
+    ├── decision-record.md
+    ├── meeting-notes.md
+    └── research-summary.md
+```
+
+## Available Domains
+
+When initializing, you can choose from these domains:
+
+| Domain | ID |
+|--------|----|
+| AI & Machine Learning | `ai-ml` |
+| Blockchain | `blockchain` |
+| Climate Tech | `climate-tech` |
+| Developer Tools | `dev-tools` |
+| Education | `education` |
+| Finance | `finance` |
+| Healthcare | `healthcare` |
+| Knowledge Management | `knowledge-management` |
+| Productivity | `productivity` |
+| Research Tools | `research-tools` |
+| Social Impact | `social-impact` |
+| Web3 | `web3` |
+| Other | `other` |
+
+## License Options
+
+Available licenses for your ideas:
+
+| License | Description |
+|---------|-------------|
+| `CC-BY-4.0` | Attribution required (default) |
+| `CC-BY-SA-4.0` | Attribution + Share-alike |
+| `MIT` | Permissive |
+| `Unlicense` | Public domain |
+| `Apache-2.0` | Apache License |
+
+## Configuration File
+
+The `config.yml` file contains metadata about your idea:
+
+```yaml
+humanet:
+  version: "1.0"
+  
+  metadata:
+    id: null  # Auto-generated when registered
+    name: "Your Idea Name"
+    tagline: "One-line description"
+    created: "2026-02-16"
+    updated: "2026-02-16"
+  
+  lifecycle:
+    status: "provisional"
+    provisional_deadline: "2026-03-18"
+    last_evaluated: null
+    evaluation_score: null
+  
+  domains:
+    - ai-ml
+    - dev-tools
+  
+  contributors:
+    maintainers:
+      - username: "yourusername"
+        role: "creator"
+        joined: "2026-02-16"
+    collaborators: []
+  
+  evolution:
+    parent: null
+    forks: []
+    branches: []
+  
+  repository:
+    url: "https://github.com/username/repo"
+    platform: "github"
+  
+  license: "CC-BY-4.0"
+```
+
+## Environment Variables
+
+The CLI respects the following environment variables:
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `HUMANET_API_URL` | Platform API endpoint | `https://api.humanet.dev` |
+| `HUMANET_CLI_CONFIG` | Custom config path | `~/.humanetrc` |
+
+## Next Steps After Initialization
+
+1. **Edit documentation files:**
+   - `.humanet/problem_statement.md` — Define the problem
+   - `.humanet/idea.md` — Describe your solution
+   - `.humanet/scope.md` — Set boundaries and metrics
+
+2. **Validate your work:**
+   ```bash
+   humanet validate
+   ```
+
+3. **Commit to Git:**
+   ```bash
+   git add .humanet/
+   git commit -m "Initialize Humanet idea structure"
+   git push
+   ```
+
+4. **Register on platform:**
+   - Visit [humanet.dev](https://humanet.dev/)
+   - Connect your repository
+   - Submit for validation
+
+## Troubleshooting
+
+### "Command not found: humanet"
+
+If you installed globally but getting this error:
+
+```bash
+# Check npm global bin path
+npm config get prefix
+
+# Add to PATH (Linux/Mac)
+export PATH=$PATH:$(npm config get prefix)/bin
+
+# Or reinstall
+npm install -g create-humanet
+```
+
+### Validation Fails
+
+Run with verbose flag to see details:
+
+```bash
+humanet validate --verbose
+```
+
+Common issues:
+- Missing required files
+- Empty or placeholder content
+- Invalid YAML syntax in `config.yml`
+- Invalid domain or license values
+
+## Links
+
+- **NPM Package:** [npmjs.com/package/create-humanet](https://www.npmjs.com/package/create-humanet)
+- **GitHub Template:** [github.com/TheFakeCreator/.humanet](https://github.com/TheFakeCreator/.humanet)
+- **Documentation:** You're here!
+- **Platform:** [humanet.dev](https://humanet.dev/)
+
+## Contributing
+
+Found a bug or have a feature request for the CLI?
+
+- **Issues:** [GitHub Issues](https://github.com/humanet/cli/issues)
+- **Pull Requests:** Welcome!
+- **Discussions:** [GitHub Discussions](https://github.com/humanet/cli/discussions)

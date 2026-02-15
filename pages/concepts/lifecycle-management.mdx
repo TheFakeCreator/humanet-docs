@@ -1,0 +1,293 @@
+---
+title: Lifecycle Management
+---
+
+# Lifecycle Management
+
+Ideas in Humanet follow a **structured lifecycle** with clear states and validation at each stage. This ensures quality and prevents the platform from becoming cluttered with vague or abandoned ideas.
+
+> **Implementation Note**
+>
+> The lifecycle system and AI-powered validation are currently under development. The documentation describes the planned workflow. For now, you can use the CLI and template to structure ideas following these guidelines manually.
+
+## The Lifecycle Flow
+
+```
+Provisional (30 day window)
+         ↓
+    [Submit for Evaluation]
+         ↓
+    AI Evaluation
+         ↓
+    ┌────┴────┐
+    ↓         ↓
+Vague    Validated
+    ↓         ↓
+[Refine]     Active Development
+    ↓         ↓
+[Re-evaluate]  ┌──────┼──────┐
+    ↓         ↓      ↓      ↓
+    └────→  Dormant  Archived  Deprecated
+```
+
+## Lifecycle States
+
+### Provisional
+
+**Duration:** 30 days maximum  
+**Purpose:** Initial development and documentation phase
+
+When you create a new idea, it enters the **Provisional** state. This gives you time to:
+- Draft required documentation
+- Gather initial research
+- Invite early collaborators
+- Refine the problem and solution
+
+**Requirements:**
+- Must have all required files (`problem_statement.md`, `idea.md`, `scope.md`, `README.md`)
+- Files must contain meaningful content (not placeholders)
+- Must submit for evaluation before the 30-day window expires
+
+**Actions Available:**
+- Edit all documentation
+- Invite collaborators
+- Add research and artifacts
+- Submit for evaluation (when ready)
+
+**What Happens if You Don't Submit?**
+- After 30 days, the idea automatically enters **Draft limbo**
+- You receive notifications at days 20, 25, and 28
+- You can request an extension (one-time, 15 additional days)
+- After limbo, the idea is archived but can be revived
+
+---
+
+### Vague
+
+**Purpose:** Indicates documentation needs improvement
+
+If the AI evaluator determines your idea lacks clarity or completeness, it will be marked **Vague** with specific feedback.
+
+**Common Reasons:**
+- Problem statement is too broad or unclear
+- Solution doesn't address the stated problem
+- Missing critical information
+- Success criteria are not measurable
+- Inconsistencies between documents
+
+**What to Do:**
+1. Review the AI evaluation feedback
+2. Address the specific concerns raised
+3. Refine your documentation
+4. Re-submit for evaluation
+
+**Re-evaluation:**
+- Unlimited re-submissions during Provisional period
+- Each evaluation provides actionable feedback
+- Can request human review if you disagree with AI assessment
+
+---
+
+### Validated
+
+**Purpose:** Idea has passed quality gates and is ready for development
+
+Congratulations! Your idea has been validated. This means:
+- Documentation is clear and complete
+- Problem and solution are well-defined
+- Idea is sufficiently differentiated from existing ideas
+- Success criteria are measurable
+
+**Benefits:**
+- Appears in public idea directory
+- Eligible for domain matching and expert recommendations
+- Can receive karma points
+- Can be forked, branched, or merged
+- Full access to collaboration features
+
+**Actions Available:**
+- Move to Active Development
+- Allow forks and branches
+- Domain-based collaboration matching
+- Knowledge graph integration
+
+---
+
+### Active Development
+
+**Purpose:** Idea is being actively worked on
+
+Once validated, you can begin active development. This state indicates:
+- Work is ongoing
+- Collaborators are making regular contributions
+- Milestones are being tracked
+- Progress is documented
+
+**Expectations:**
+- Regular activity (commits, updates, discussions)
+- Milestone tracking in `scope.md`
+- Decision documentation
+- Response to contributor questions
+
+**Indicators of Activity:**
+- Commits/updates in the last 30 days
+- Open discussions or pull requests
+- Meeting notes or decision logs
+- Prototype or code development
+
+**If Inactive for 60 Days:**
+- Automatic notification to maintainers
+- Community can request status update
+- Option to mark as Dormant or open for adoption
+
+---
+
+### Dormant
+
+**Purpose:** Temporarily paused, but may resume
+
+Sometimes ideas need to be put on hold:
+- Maintainer is unavailable
+- Waiting for external dependencies
+- Strategic pause for planning
+- Resource constraints
+
+**Requirements:**
+- Must provide a reason and expected duration
+- Maintain minimal documentation
+- Respond to major questions/forks
+
+**Benefits:**
+- Won't be flagged as inactive
+- Reserved in knowledge graph
+- Can resume at any time
+- Original maintainer retains ownership
+
+**Open for Adoption:**
+- Maintainer can mark as "Open for New Maintainer"
+- Others can request to adopt the idea
+- Original maintainer retains credit in family tree
+
+---
+
+### Archived (Complete)
+
+**Purpose:** Idea has reached a natural conclusion
+
+Mark an idea as **Archived** when:
+- Goals have been achieved
+- Project has been completed
+- Implementation is successful
+- No further development needed
+
+**Characteristics:**
+- Documentation becomes read-only
+- Still visible in knowledge graph
+- Can be forked or referenced
+- Serves as a reference for future ideas
+
+**Karma Bonus:**
+- Successfully archived ideas receive completion karma
+- All contributors receive attribution
+- Featured in success stories
+
+---
+
+### Deprecated (Superseded)
+
+**Purpose:** Idea has been replaced by a better approach
+
+Mark as **Deprecated** when:
+- A better solution has emerged
+- The approach is no longer viable
+- Superseded by a fork or merge
+- Assumptions were proven wrong
+
+**Requirements:**
+- Must link to the superseding idea (if applicable)
+- Explain why it was deprecated
+- Document lessons learned
+
+**Value:**
+- Prevents others from pursuing dead ends
+- Shows evolutionary path in family tree
+- Lessons learned inform future ideas
+- Maintains historical context
+
+---
+
+## Transitions Between States
+
+### Provisional → Vague
+- **Trigger:** Failed AI evaluation
+- **Action:** Review feedback and refine
+
+### Provisional → Validated
+- **Trigger:** Passed AI evaluation
+- **Action:** Idea becomes publicly visible
+
+### Validated → Active
+- **Trigger:** Manual transition by maintainer
+- **Action:** Work begins, collaboration opens
+
+### Active → Dormant
+- **Trigger:** Manual pause or 60 days inactivity
+- **Action:** Provide reason and timeline
+
+### Active → Archived
+- **Trigger:** Goals achieved
+- **Action:** Document outcomes and lessons
+
+### Active → Deprecated
+- **Trigger:** Better solution found
+- **Action:** Link to replacement, document reasoning
+
+### Dormant → Active
+- **Trigger:** Work resumes
+- **Action:** Update status and roadmap
+
+## Best Practices
+
+### During Provisional
+- Take time to research and draft thoroughly
+- Get early feedback from trusted collaborators
+- Use the full 30 days if needed
+- Don't rush to submit incomplete documentation
+
+### After Validation
+- Regularly update progress
+- Document decisions as you go
+- Respond to collaborator questions
+- Don't go silent for extended periods
+
+### When Pausing
+- Be transparent about timeline
+- Consider marking "Open for Adoption"
+- Respond to major questions
+- Don't ghost the community
+
+### When Completing
+- Document lessons learned
+- Celebrate achievements
+- Link to implementations or results
+- Thank contributors
+
+## FAQ
+
+**Q: Can I extend the 30-day Provisional window?**  
+A: Yes, once. You can request a 15-day extension.
+
+**Q: What if I disagree with the AI evaluation?**  
+A: You can request a human review through the community oversight process.
+
+**Q: Can I resurrect an archived idea?**  
+A: Yes, you can fork it and start fresh with updated context.
+
+**Q: What happens to forks if an idea is deprecated?**  
+A: Forks remain independent and can continue development.
+
+## Next Steps
+
+- Understand [Quality Control](/concepts/quality-control) criteria
+- Learn about [Idea Evolution](/concepts/idea-evolution)
+- Read the [Create Your First Idea](/guides/create-first-idea) guide

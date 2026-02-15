@@ -1,0 +1,153 @@
+---
+title: Getting Started
+---
+
+# Getting Started with Humanet
+
+Welcome to Humanet! This guide will help you understand the platform and create your first idea repository.
+
+> **Platform Status**
+>
+> The Humanet platform is in active development. Currently available: CLI tool and GitHub template for structuring ideas. Coming soon: Web platform, AI validation system, collaboration features, and knowledge graph integration.
+
+## What You'll Learn
+
+1. Core concepts and terminology
+2. How to create an idea repository
+3. Required documentation structure
+4. How ideas progress through lifecycles
+5. How to collaborate with others
+
+## Prerequisites
+
+Before you start:
+- Understanding of version control concepts (Git/GitHub helpful but not required)
+- Markdown knowledge (basic formatting)
+- Clear problem you want to solve or idea you want to develop
+- Node.js 18+ installed (for CLI method)
+
+## Quick Start Options
+
+Choose your preferred method to create an idea:
+
+### Option 1: CLI (Recommended)
+
+The fastest way to get started:
+
+```bash
+npx create-humanet
+```
+
+The CLI will guide you through an interactive setup, creating all required files and folder structure automatically.
+
+**Advantages:**
+- Interactive prompts guide you through setup
+- Validates your input as you go
+- Creates proper folder structure instantly
+- Built-in validation with `humanet validate`
+
+[View full CLI documentation →](/reference/cli)
+
+### Option 2: GitHub Template
+
+Use the official template repository:
+
+1. Visit [github.com/TheFakeCreator/.humanet](https://github.com/TheFakeCreator/.humanet)
+2. Click "Use this template" → "Create a new repository"
+3. Name your repository and clone it locally
+4. Edit the template files with your idea details
+
+**Advantages:**
+- Works without Node.js
+- Full GitHub integration from the start
+- Pre-configured structure
+
+### Option 3: Manual Setup
+
+Clone the template and customize manually:
+
+```bash
+git clone https://github.com/TheFakeCreator/.humanet.git my-idea
+cd my-idea
+rm -rf .git
+git init
+```
+
+Then edit all files in the `.humanet/` folder.
+
+## Understanding the Basics
+
+### What is an Idea Repository?
+
+An idea repository is like a GitHub repository, but for ideas instead of code. It contains:
+
+- **Structured documentation** — Required files that define your idea
+- **Supporting artifacts** — Research, diagrams, prototypes, discussions
+- **Version history** — Track how your idea evolves over time
+- **Collaboration space** — Work with others transparently
+
+### The Idea Lifecycle
+
+Ideas aren't static. They evolve through stages:
+
+```
+Provisional (30 days)
+    ↓
+AI Evaluation
+    ↓
+Validated
+    ↓
+Active Development
+    ↓
+Complete/Archived
+```
+
+Each stage has specific requirements and validation criteria.
+
+## Your First Idea
+
+Ready to create your first idea? 
+
+**Using the CLI:**
+```bash
+npx create-humanet
+```
+
+Follow the interactive prompts, then:
+
+### Quick Checklist
+
+- [ ] Run `npx create-humanet` or use GitHub template
+- [ ] Identify a clear problem to solve
+- [ ] Edit `.humanet/problem_statement.md`
+- [ ] Edit `.humanet/idea.md` with your solution
+- [ ] Edit `.humanet/scope.md` with boundaries and success criteria
+- [ ] Run `humanet validate` to check your work (if using CLI)
+- [ ] Commit and push to GitHub
+- [ ] Submit for validation on Humanet platform
+
+**Detailed guide:** [Create Your First Idea →](/guides/create-first-idea)
+
+## Next Steps
+
+<div className="mt-6 space-y-4">
+
+### [Core Concepts](/concepts/idea-repositories)
+Deep dive into idea repositories, lifecycles, and collaboration features.
+
+### [Standards & Guidelines](/standards/overview)
+Learn about documentation standards, diagramming conventions, and best practices.
+
+### [Contributing Guide](/guides/contributing)
+Understand how to contribute to existing ideas and collaborate effectively.
+
+</div>
+
+## Need Help?
+
+- **Documentation** — Browse the concepts and guides sections
+- **Community** — Join discussions and ask questions
+- **Examples** — Check out sample idea repositories
+- **Support** — Reach out if you're stuck
+
+Let's build something amazing together!

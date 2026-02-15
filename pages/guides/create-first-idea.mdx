@@ -1,0 +1,506 @@
+---
+title: Create Your First Idea
+---
+
+# Create Your First Idea
+
+This step-by-step guide will walk you through creating your first idea repository on Humanet.
+
+## Choose Your Method
+
+### Quick Start (Recommended)
+
+**Using the CLI - Takes 5 minutes:**
+
+```bash
+npx create-humanet
+```
+
+The interactive CLI will:
+1. Ask you questions about your idea
+2. Generate all required files automatically
+3. Set up the proper folder structure
+4. Provide validation commands
+
+Skip to [Step 1: Identify Your Problem](#step-1-identify-your-problem) below to prepare, then run the CLI.
+
+[Full CLI Reference →](/reference/cli)
+
+---
+
+### Manual Setup (Detailed Tutorial)
+
+**For those who want to understand the structure:**
+
+This guide walks through creating each file manually, explaining the purpose and content of each section. Perfect for learning the Humanet structure in depth.
+
+- **Time estimate:** 1-2 hours
+- **Best for:** Learning, customization, no Node.js available
+
+Continue reading for the detailed manual setup...
+
+---
+
+## Prerequisites
+
+- A clear problem you want to solve
+- Basic understanding of Markdown (or willingness to learn)
+- 1-2 hours to draft initial documentation
+
+## Step 1: Identify Your Problem
+
+Before creating an idea, you need a clear problem to solve.
+
+### Good Problems to Start With:
+
+**Specific pain points you've experienced**
+- "Task management tools don't integrate with my research workflow"
+- "Finding relevant research papers is time-consuming"
+- "Team knowledge gets lost in Slack conversations"
+
+**Clearly defined scope**
+- "Improve code review process for remote teams"
+- "Streamline data collection for user research"
+- "Automate deployment pipeline for static sites"
+
+**Avoid problems that are too broad**
+- "Fix education system"
+- "Make the internet better"
+- "Solve climate change"
+
+**Action:** Write 2-3 sentences describing the problem you want to solve.
+
+## Step 2: Initialize Your Idea
+
+### Option A: Using CLI (Fast)
+
+```bash
+# Navigate to your project folder (or create a new one)
+mkdir my-brilliant-idea
+cd my-brilliant-idea
+
+# Initialize .humanet folder
+npx create-humanet
+
+# Or if installed globally
+humanet init
+```
+
+Follow the interactive prompts:
+- Enter your idea name
+- Provide a one-line description
+- Select relevant domains (use space to select, enter to confirm)
+- Enter your GitHub username
+- Optionally provide repository URL
+- Choose a license
+
+The CLI creates the complete `.humanet/` folder structure with template files.
+
+**Next:** Skip to [Step 7: Add Supporting Materials](#step-7-add-supporting-materials-optional) or run `humanet validate` to check your setup.
+
+---
+
+### Option B: Using GitHub Template
+
+1. Visit [github.com/TheFakeCreator/.humanet](https://github.com/TheFakeCreator/.humanet)
+2. Click **"Use this template"** → **"Create a new repository"**
+3. Name your repository (e.g., `research-workflow-integrator`)
+4. Clone it locally:
+   ```bash
+   git clone https://github.com/yourusername/your-idea-name.git
+   cd your-idea-name
+   ```
+
+**Next:** Edit the files in the `.humanet/` folder starting with Step 3 below.
+
+---
+
+### Option C: Manual Setup (Learning Mode)
+
+Create the structure manually to understand each component:
+
+```bash
+mkdir my-idea && cd my-idea
+mkdir -p .humanet/{diagrams,research,discussions,evaluations,templates}
+```
+
+Continue with Step 3 to create each file...
+
+## Step 3: Draft Problem Statement
+
+Create `.humanet/problem_statement.md` with the following sections:
+
+```markdown
+# Problem Statement
+
+## The Problem
+[What problem exists? Be specific.]
+
+Example: "Researchers spend 4-6 hours per week manually tracking 
+papers across multiple platforms (arXiv, PubMed, Google Scholar). 
+There's no unified way to organize, annotate, and share findings 
+with collaborators."
+
+## Who It Affects
+[Who experiences this problem?]
+
+Example: "Academic researchers, graduate students, and research 
+teams in STEM fields who need to stay updated with literature."
+
+## Current Impact
+[What are the consequences?]
+
+Example:
+- Time wasted on manual tracking
+- Important papers get missed
+- Difficulty collaborating on literature reviews
+- No systematic approach to knowledge management
+
+## Why It Persists
+[Why hasn't this been solved?]
+
+Example: "Existing tools focus on single aspects (reference 
+management OR discovery OR collaboration) but don't integrate 
+the full workflow. Building comprehensive solutions requires 
+expertise in multiple domains."
+
+## Constraints
+[What limitations exist?]
+
+Example:
+- Must respect academic publisher APIs and terms
+- Privacy concerns with sharing unpublished research
+- Need to work with existing reference managers
+- Limited budget for infrastructure
+```
+
+**Time estimate:** 20-30 minutes
+
+## Step 4: Describe Your Idea
+
+Create `.humanet/idea.md` explaining your solution:
+
+```markdown
+# The Idea
+
+## Core Concept
+[High-level description in 2-3 sentences]
+
+Example: "A unified research workflow platform that aggregates 
+papers from multiple sources, provides AI-powered relevance 
+filtering, and enables collaborative annotation and knowledge 
+graph building."
+
+## How It Works
+[Explain the mechanism]
+
+Example:
+1. Users connect their preferred research databases
+2. AI agents monitor for relevant papers based on interests
+3. Papers are auto-categorized and summarized
+4. Team members can annotate and discuss
+5. Knowledge graph shows relationships between papers
+6. Integrates with existing reference managers
+
+## Key Features
+1. **Multi-source aggregation** — arXiv, PubMed, Semantic Scholar
+2. **AI relevance scoring** — Personalized recommendations
+3. **Collaborative annotations** — Team discussion threads
+4. **Knowledge graph** — Visual connections between papers
+5. **Reference manager sync** — Zotero, Mendeley integration
+
+## Differentiation
+[What makes this unique?]
+
+Example: "Unlike Zotero (just storage) or Google Scholar 
+(just search), this integrates the entire workflow: discovery, 
+filtering, organization, collaboration, and knowledge synthesis."
+
+## Assumptions
+[What are you assuming?]
+
+Example:
+- Researchers use multiple paper sources
+- Teams want to collaborate on literature reviews
+- AI can effectively judge paper relevance
+- Users are willing to connect their accounts
+```
+
+**Time estimate:** 30-45 minutes
+
+## Step 5: Define Scope
+
+Create `.humanet/scope.md` to set boundaries:
+
+```markdown
+# Scope
+
+## In Scope (MVP)
+- [ ] Multi-source paper aggregation (3 sources)
+- [ ] Basic AI relevance filtering
+- [ ] Collaborative annotations
+- [ ] Zotero integration
+- [ ] Simple knowledge graph visualization
+- [ ] Team workspaces
+
+## Out of Scope (V1)
+- Full-text paper analysis (future)
+- Citation metrics and analytics (future)
+- Mobile apps (web-first)
+- Citation formatting/bibliography generation (use Zotero)
+- Paper writing tools (use Overleaf/Word)
+- Publisher access (assume open access/institutional)
+
+## Success Criteria
+- [ ] Aggregate papers from 3+ sources successfully
+- [ ] Users save 50%+ time on paper discovery
+- [ ] 70%+ AI relevance accuracy (user feedback)
+- [ ] 10+ collaborative annotation threads per team/month
+- [ ] Integration works seamlessly with Zotero
+
+## Milestones
+1. **Phase 1 (Months 1-2)**: Paper aggregation & basic UI
+2. **Phase 2 (Months 3-4)**: AI filtering & relevance scoring
+3. **Phase 3 (Months 5-6)**: Collaboration features
+4. **Phase 4 (Months 7-8)**: Knowledge graph & Zotero sync
+5. **Phase 5 (Months 9-10)**: Beta testing & refinement
+```
+
+**Time estimate:** 15-20 minutes
+
+## Step 6: Create README
+
+Create `.humanet/README.md` as the entry point for your idea documentation:
+
+```markdown
+# Research Workflow Integrator
+
+**Status:** Provisional  
+**Domain:** Research Tools, AI/ML, Knowledge Management  
+**Contributors:** [@yourusername]
+
+## Overview
+
+A unified platform for researchers to discover, organize, and 
+collaborate on academic literature across multiple sources.
+
+## Problem
+
+Researchers spend 4-6 hours/week manually tracking papers across 
+fragmented platforms with no systematic collaboration or knowledge 
+synthesis tools.
+
+## Solution
+
+AI-powered aggregation platform with collaborative annotations and 
+knowledge graph visualization.
+
+## Documentation
+
+- [Problem Statement](problem_statement.md)
+- [The Idea](idea.md)
+- [Scope & Milestones](scope.md)
+- [Diagrams](diagrams/)
+
+## Current Status
+
+**Provisional Phase** — Drafting core documentation and gathering 
+initial research.
+
+## How to Contribute
+
+This idea is open for feedback during the Provisional phase:
+- Review documentation and provide feedback
+- Share relevant research or existing solutions
+- Suggest improvements to approach
+- Join as a collaborator
+
+## Contact
+
+- **Maintainer:** [@yourusername]
+- **Discussions:** [Link to discussion board]
+```
+
+**Note:** You may also want a root-level `README.md` that introduces your project and links to `.humanet/README.md` for the idea documentation.
+
+**Time estimate:** 10-15 minutes
+
+## Step 7: Add Supporting Materials (Optional)
+
+All supporting materials go in the `.humanet/` folder:
+
+Enhance your idea with additional artifacts:
+
+### Research
+- Create `.humanet/research/literature-review.md`
+- Add relevant papers in `.humanet/research/papers/`
+- Document competitive analysis
+
+### Diagrams
+- Use Draw.io to create architecture diagram in `.humanet/diagrams/`
+- Create user flow diagram
+- See [Diagramming Standards](/standards/diagramming)
+
+### Data
+- Add user survey results to `.humanet/data/`
+- Include market research data
+- Document use cases
+
+**Time estimate:** Variable (30 minutes - 2 hours)
+
+## Step 8: Review & Refine
+
+Before submitting for evaluation:
+
+### CLI Validation (Recommended)
+
+If you used the CLI to initialize, run the validation command:
+
+```bash
+humanet validate
+
+# For detailed output
+humanet validate --verbose
+```
+
+This checks:
+- All required files exist
+- `config.yml` follows the schema
+- YAML syntax is valid
+- No placeholder text remains
+- Files have minimum content
+
+### Manual Self-Review Checklist
+
+- [ ] All required files exist in `.humanet/` folder
+- [ ] `config.yml` is properly filled out
+- [ ] Problem statement is specific and clear
+- [ ] Solution directly addresses the problem
+- [ ] Scope has measurable success criteria
+- [ ] No placeholder or empty sections
+- [ ] Internal consistency (no contradictions)
+- [ ] Proper markdown formatting
+- [ ] Files are properly linked in README
+
+### Get Early Feedback
+
+- Share with 2-3 trusted collaborators
+- Ask specific questions:
+  - "Is the problem clear?"
+  - "Does the solution make sense?"
+  - "What am I missing?"
+- Iterate based on feedback
+
+**Time estimate:** 30 minutes - 1 hour
+
+## Step 9: Submit for Evaluation
+
+Ready to validate your idea?
+
+1. Click **"Submit for Evaluation"** in your idea repository
+2. AI evaluator will review within 24 hours
+3. You'll receive:
+   - **Validated** status, or
+   - **Vague** status with specific feedback
+
+### If Marked Vague
+
+Don't worry! This is normal. Review the feedback:
+
+- **Common issues:**
+  - Problem too broad → Make it more specific
+  - Missing details → Add concrete examples
+  - Unclear scope → Define boundaries better
+  - Inconsistencies → Align documents
+
+- **Action:** Address feedback and re-submit
+- **Unlimited re-evaluations** during Provisional period
+
+### If Validated
+
+Congratulations! Your idea is now:
+- Publicly visible
+- Eligible for domain matching
+- Ready for collaboration
+- Part of the knowledge graph
+
+## Step 10: Move to Active Development
+
+Once validated:
+
+1. Mark idea as **Active**
+2. Start working on milestones
+3. Invite collaborators
+4. Document progress and decisions
+5. Keep documentation updated
+
+## Example Timeline
+
+**Week 1:**
+- Day 1: Identify problem (1 hour)
+- Day 2: Draft problem_statement.md (1 hour)
+- Day 3: Draft idea.md (1 hour)
+- Day 4: Draft scope.md (1 hour)
+- Day 5: Create README and review (1 hour)
+
+**Week 2:**
+- Day 1-2: Add research and diagrams (2-4 hours)
+- Day 3: Get feedback from peers (1 hour)
+- Day 4: Refine based on feedback (1-2 hours)
+- Day 5: Submit for evaluation
+
+**Week 3:**
+- Receive evaluation results
+- If vague: refine and re-submit
+- If validated: celebrate and plan next steps!
+
+## Tips for Success
+
+### Do:
+- Take your time — use the full 30-day Provisional period
+- Be specific — concrete details beat vague generalities
+- Show, don't just tell — diagrams and examples help
+- Get early feedback — fresh eyes catch issues
+- Document assumptions — be transparent about unknowns
+
+### Don't:
+- Rush to submit incomplete documentation
+- Make the problem too broad
+- Skip the scope definition
+- Ignore evaluation feedback
+- Work in isolation — collaboration makes ideas stronger
+
+## Common Mistakes
+
+**Problem too broad**
+- Bad: "Improve scientific research"
+- Good: "Streamline literature review process for biology researchers"
+
+**Solution doesn't match problem**
+- Problem talks about collaboration issues
+- Solution focuses only on personal productivity
+
+**Vague success criteria**
+- Bad: "Make researchers happy"
+- Good: "Reduce time spent on paper discovery by 50%"
+
+**Missing constraints**
+- Ignoring technical, financial, or regulatory limitations
+- Assuming unlimited resources
+
+## Need Help?
+
+- **Documentation:** [Standards & Guidelines](/standards/overview)
+- **Examples:** Browse validated idea repositories
+- **Community:** Ask questions in discussions
+- **Support:** Contact maintainers
+
+## Next Steps
+
+Now that you've created your first idea:
+
+1. **[Lifecycle Progression](/guides/lifecycle-progression)** — Understand how to manage your idea
+2. **[Collaboration Guide](/guides/contributing)** — Learn to work with others
+3. **[Idea Evolution](/concepts/idea-evolution)** — Explore forking and branching
+
+Ready to get started? Create your first idea now!

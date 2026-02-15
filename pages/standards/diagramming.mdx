@@ -1,0 +1,412 @@
+---
+title: Diagramming with Draw.io
+---
+
+# Diagramming Standards with Draw.io
+
+Humanet uses **[Draw.io](https://app.diagrams.net/)** (also known as diagrams.net) as the standard diagramming tool for all visual documentation.
+
+## Why Draw.io?
+
+Draw.io was chosen for several key reasons:
+
+- **Free and Open Source** — No licensing costs, accessible to everyone
+- **Web-Based** — No installation required, works in any browser
+- **Version Control Friendly** — Saves as XML, perfect for Git tracking
+- **Comprehensive Shape Libraries** — Supports flowcharts, UML, architecture diagrams, ERDs, and more
+- **Export Options** — Easy export to PNG, SVG, PDF
+- **No Vendor Lock-In** — Open format, can be edited anywhere
+- **Collaborative** — Can be integrated with cloud storage
+- **Simple to Learn** — Intuitive drag-and-drop interface
+
+## Getting Started with Draw.io
+
+### Access Draw.io
+
+1. **Web Version** — https://app.diagrams.net (recommended)
+2. **Desktop App** — https://get.diagrams.net (optional)
+3. **VS Code Extension** — [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
+
+### Storage Options
+
+When creating a new diagram, you can choose:
+- **Device** — Save locally to your computer
+- **Google Drive** — Cloud storage with versioning
+- **OneDrive** — Microsoft cloud storage
+- **GitHub** — Direct integration with repositories
+- **GitLab** — Alternative Git hosting
+
+**Recommendation:** Save `.drawio` files directly in your idea repository for version control.
+
+## Types of Diagrams
+
+### 1. Architecture Diagrams
+
+**Purpose:** Show system structure and component relationships
+
+**When to use:**
+- System design
+- Technical architecture
+- Component interactions
+- Infrastructure layout
+
+**Shape Libraries:**
+- AWS / Azure / GCP (cloud architecture)
+- Network
+- Basic Shapes
+- Containers
+
+**Example naming:** `architecture-overview.drawio`, `system-components.drawio`
+
+**Best practices:**
+- Use consistent shapes for similar components
+- Show data flow with labeled arrows
+- Group related components
+- Include a legend if using custom colors
+
+### 2. Flowcharts
+
+**Purpose:** Visualize processes, workflows, and algorithms
+
+**When to use:**
+- User journeys
+- Business processes
+- Decision trees
+- Algorithm logic
+
+**Shape Libraries:**
+- Flowchart
+- Basic Shapes
+- BPMN (Business Process)
+
+**Example naming:** `user-flow.drawio`, `decision-process.drawio`
+
+**Best practices:**
+- Start with a clear entry point
+- Use standard flowchart symbols (diamond for decisions, rectangle for processes)
+- Keep flows top-to-bottom or left-to-right
+- Avoid crossing lines when possible
+
+### 3. Data Flow Diagrams (DFD)
+
+**Purpose:** Show how data moves through a system
+
+**When to use:**
+- Data processing pipelines
+- Information flow
+- System boundaries
+- External entities
+
+**Shape Libraries:**
+- Flowchart
+- Data Flow Diagram
+- Basic Shapes
+
+**Example naming:** `data-flow.drawio`, `processing-pipeline.drawio`
+
+**Best practices:**
+- Clearly label data stores
+- Show data transformations
+- Indicate external systems
+- Use consistent notation (DFD Level 0, 1, 2)
+
+### 4. Entity Relationship Diagrams (ERD)
+
+**Purpose:** Model database structure and relationships
+
+**When to use:**
+- Database design
+- Data modeling
+- Relationship mapping
+
+**Shape Libraries:**
+- Entity Relation
+- UML
+- Database ER Diagram
+
+**Example naming:** `database-schema.drawio`, `data-model.drawio`
+
+**Best practices:**
+- Show primary and foreign keys
+- Indicate relationship cardinality (1:1, 1:N, N:M)
+- Use crow's foot notation
+- Group related entities
+
+### 5. UML Diagrams
+
+**Purpose:** Unified Modeling Language for software design
+
+**When to use:**
+- Class diagrams
+- Sequence diagrams
+- Use case diagrams
+- State machines
+
+**Shape Libraries:**
+- UML
+- UML 2.5
+
+**Example naming:** `class-diagram.drawio`, `sequence-auth.drawio`
+
+**Best practices:**
+- Follow UML notation standards
+- Keep diagrams focused (one concept per diagram)
+- Show visibility modifiers (public/private)
+- Document relationships clearly
+
+### 6. Mind Maps & Concept Maps
+
+**Purpose:** Brainstorming and concept relationships
+
+**When to use:**
+- Idea exploration
+- Concept relationships
+- Feature brainstorming
+- Problem space mapping
+
+**Shape Libraries:**
+- Basic Shapes
+- Mind Map
+
+**Example naming:** `concept-map.drawio`, `feature-brainstorm.drawio`
+
+**Best practices:**
+- Start with central concept
+- Use colors to group themes
+- Keep text concise
+- Show hierarchies clearly
+
+### 7. Wireframes & Mockups
+
+**Purpose:** UI/UX design sketches
+
+**When to use:**
+- Interface design
+- User experience planning
+- Screen layouts
+
+**Shape Libraries:**
+- Mockups
+- Android
+- iOS
+- Bootstrap
+
+**Example naming:** `wireframe-homepage.drawio`, `ui-dashboard.drawio`
+
+**Best practices:**
+- Keep wireframes low-fidelity
+- Focus on layout, not visual design
+- Annotate interactions
+- Show different states (empty, loading, error)
+
+## File Naming Conventions
+
+Use clear, descriptive names with hyphens:
+
+```
+Good:
+- architecture-overview.drawio
+- user-authentication-flow.drawio
+- database-schema-v2.drawio
+- data-processing-pipeline.drawio
+
+Avoid:
+- diagram1.drawio
+- Untitled.drawio
+- my diagram.drawio (spaces)
+- DIAGRAM.drawio (all caps)
+```
+
+**Versioning:**
+- Use Git for versioning, not filenames
+- If you must version in name: `architecture-v2.drawio`
+- Add dates only for major milestones: `architecture-2026-02.drawio`
+
+## File Organization
+
+Store diagrams in a dedicated directory:
+
+```
+my-idea-repo/
+├── diagrams/
+│   ├── README.md
+│   ├── architecture-overview.drawio
+│   ├── architecture-overview.png
+│   ├── user-flow.drawio
+│   ├── user-flow.png
+│   ├── database-schema.drawio
+│   └── database-schema.svg
+├── README.md
+├── problem_statement.md
+├── idea.md
+└── scope.md
+```
+
+**Best practices:**
+- Create a `diagrams/` folder in repository root
+- Add a `diagrams/README.md` with descriptions of each diagram
+- Store both `.drawio` source and exported images
+- Reference diagrams in main documentation using exported images
+
+## Export Settings
+
+Always export diagrams for embedding in documentation:
+
+### PNG Export (Raster)
+- **Use for:** Documentation, presentations
+- **Settings:**
+  - Border width: 10px
+  - Transparent background: Optional
+  - Resolution: 2x (for Retina displays)
+
+### SVG Export (Vector)
+- **Use for:** Scalable graphics, web use
+- **Settings:**
+  - Embed fonts: Yes
+  - Include diagram data: Optional (allows re-editing)
+
+### PDF Export
+- **Use for:** Print documentation, formal reports
+- **Settings:**
+  - Fit to one page: Usually yes
+  - Include diagram data: Optional
+
+**Workflow:**
+1. Create and save `.drawio` file
+2. Export to PNG/SVG for documentation
+3. Commit both files to repository
+4. Embed exported image in markdown: `![Architecture](diagrams/architecture-overview.png)`
+
+## Style Guide
+
+### Colors
+
+Use consistent, accessible colors:
+
+```
+Primary Components:   #4A90E2 (Blue)
+Secondary Components: #7B68EE (Purple)
+Data Stores:          #50C878 (Emerald)
+External Systems:     #F5A623 (Orange)
+User/Actor:           #E85D75 (Red-Pink)
+Process/Action:       #4ECDC4 (Teal)
+Background:           #FFFFFF (White)
+Borders:              #333333 (Dark Gray)
+```
+
+**Accessibility:**
+- Ensure sufficient contrast
+- Don't rely on color alone (use labels)
+- Provide text alternatives
+
+### Fonts
+
+- **Primary Font:** Helvetica, Arial, or system default
+- **Size:** 12-14pt for main text, 10-11pt for labels
+- **Weight:** Regular for body, Bold for headings
+
+### Layout
+
+- **Alignment:** Use grid alignment (snap to grid)
+- **Spacing:** Consistent padding between elements
+- **Flow:** Left-to-right or top-to-bottom
+- **Grouping:** Visual proximity for related items
+
+### Arrows & Connectors
+
+- **Line style:** Solid for primary flow, dashed for optional/secondary
+- **Arrow heads:** Filled for data flow, open for references
+- **Labels:** Always label non-obvious connections
+- **Routing:** Avoid crossing lines when possible
+
+## Templates & Examples
+
+### Architecture Diagram Template
+
+1. Open Draw.io
+2. Choose "Blank Diagram"
+3. Use shape libraries: AWS, Azure, or Network
+4. Create layers:
+   - Layer 1: Infrastructure
+   - Layer 2: Components
+   - Layer 3: Data Flow
+5. Add legend in bottom-right corner
+
+### Flowchart Template
+
+1. Start with "Flowchart" template in Draw.io
+2. Begin with "Start" oval
+3. Use standard shapes:
+   - Rectangle for processes
+   - Diamond for decisions
+   - Parallelogram for input/output
+   - Rounded rectangle for subprocesses
+4. End with "End" oval
+5. Ensure all paths are complete
+
+### DFD Template
+
+1. Choose "Data Flow Diagram" template
+2. Define:
+   - External entities (rectangles)
+   - Processes (circles)
+   - Data stores (open rectangles)
+   - Data flows (arrows)
+3. Number processes (1.0, 2.0, etc.)
+4. Label all flows
+
+## Tips & Tricks
+
+### Keyboard Shortcuts
+- **Ctrl+D / Cmd+D** — Duplicate selection
+- **Ctrl+G / Cmd+G** — Group shapes
+- **Ctrl+Shift+G / Cmd+Shift+G** — Ungroup
+- **Alt+Drag** — Duplicate while moving
+- **Shift+Drag** — Constrain to horizontal/vertical
+
+### Productivity
+- **Use layers** — Organize complex diagrams
+- **Create custom libraries** — Reuse common patterns
+- **Use connection points** — Keep connectors attached
+- **Lock background** — Prevent accidental moves
+
+### Collaboration
+- **Add comments** — Document design decisions
+- **Use pages** — Multiple views in one file
+- **Export with diagram data** — Allow others to edit from exported file
+- **Link diagrams** — Use hyperlinks to connect related diagrams
+
+## Validation Checklist
+
+Before submitting diagram for review:
+
+- [ ] File saved as `.drawio` in `diagrams/` folder
+- [ ] Exported to PNG or SVG
+- [ ] All components clearly labeled
+- [ ] Legend included if using custom colors/shapes
+- [ ] Follows naming conventions
+- [ ] Referenced in relevant documentation
+- [ ] Committed to version control
+- [ ] README updated in diagrams folder
+
+## Common Mistakes to Avoid
+
+**Overly complex diagrams** — Break into multiple focused diagrams  
+**Unlabeled arrows** — Always explain what data/control flows where  
+**Inconsistent styling** — Use the same shapes/colors for same concepts  
+**Too much detail** — Match detail level to audience  
+**Forgetting to export** — Source files can't be embedded in docs  
+**No version control** — Commit `.drawio` files, not just exports  
+
+## Resources
+
+- **Draw.io Documentation** — https://www.diagrams.net/doc/
+- **Shape Libraries** — https://www.diagrams.net/blog/shape-libraries
+- **Tutorials** — https://www.diagrams.net/blog/tutorials
+- **Keyboard Shortcuts** — https://www.diagrams.net/shortcuts
+
+## Next Steps
+
+- Review [Documentation Standards](/standards/documentation)
+- See [Idea Repositories](/concepts/idea-repositories) for file organization
+- Start [Creating Your First Idea](/guides/create-first-idea)
