@@ -103,7 +103,7 @@ This site uses Tailwind CSS. The theme configuration is in:
 
 ## License
 
-[Your License Here]
+MIT License - see [LICENSE](LICENSE) file for details
 
 ## Links
 

@@ -2,6 +2,19 @@
   "name": "humanet-docs",
   "version": "0.1.0",
   "description": "Documentation for Humanet - GitHub for Ideas",
+  "author": "Humanet Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheFakeCreator/humanet-docs.git"
+  },
+  "keywords": [
+    "humanet",
+    "documentation",
+    "ideas",
+    "collaboration",
+    "knowledge-management"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

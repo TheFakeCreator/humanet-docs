@@ -4,9 +4,9 @@ import { DocsThemeConfig } from 'nextra-theme-docs';
 const config: DocsThemeConfig = {
   logo: <span style={{ fontWeight: 700, fontSize: '1.5rem' }}>Humanet</span>,
   project: {
-    link: 'https://github.com/yourusername/humanet',
+    link: 'https://github.com/TheFakeCreator/.humanet',
   },
-  docsRepositoryBase: 'https://github.com/yourusername/humanet-docs',
+  docsRepositoryBase: 'https://github.com/TheFakeCreator/humanet-docs/tree/main',
   footer: {
     text: `© ${new Date().getFullYear()} Humanet. Built with Nextra.`,
   },
