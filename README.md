@@ -119,7 +119,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 - **Repository:** [github.com/TheFakeCreator/humanet-docs](https://github.com/TheFakeCreator/humanet-docs)
 - **NPM Package:** [create-humanet](https://www.npmjs.com/package/create-humanet)
 - **Template:** [.humanet template](https://github.com/TheFakeCreator/.humanet)
-- **Live Documentation:** [Coming Soon]
+- **Live Documentation:** [humanet-docs](https://humanet-docs.vercel.app/)
 
 ---
 
