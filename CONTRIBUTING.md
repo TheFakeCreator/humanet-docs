@@ -59,23 +59,35 @@ Have ideas for new content or better explanations?
 
 ### File Structure
 
-- Place files in the appropriate directory (`concepts/`, `guides/`, `standards/`, `reference/`)
+- Create a new folder for each page in the appropriate directory (`concepts/`, `guides/`, `standards/`, `reference/`)
+- Add a `page.mdx` file inside the folder
 - Update `_meta.json` to add pages to navigation
-- Use descriptive filenames with hyphens: `create-first-idea.mdx`
+- Use descriptive folder names with hyphens: `create-first-idea/`
+
+Example:
+```bash
+app/
+├── concepts/
+│   ├── new-concept/
+│   │   └── page.mdx
+│   └── _meta.json
+```
 
 ### MDX Format
 
-All documentation pages should include:
+All documentation pages use MDX format:
 
 ```mdx
----
-title: Your Page Title
----
-
 # Your Page Title
 
 Content goes here...
+
+## Section
+
+More content...
 ```
+
+Note: With Nextra 4 + App Router, frontmatter is optional. The filename and folder structure determine the route.
 
 ### Code Examples
 
@@ -86,6 +98,7 @@ Content goes here...
 ### Links
 
 - Use relative links for internal pages: `/guides/create-first-idea`
+- Folder names become URL paths (e.g., `app/concepts/lifecycle-management/` → `/concepts/lifecycle-management`)
 - Use full URLs for external resources
 - Check all links work before submitting
 

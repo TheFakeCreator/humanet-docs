@@ -1,7 +1,6 @@
-import React from 'react';
-import { DocsThemeConfig } from 'nextra-theme-docs';
+import * as React from 'react';
 
-const config: DocsThemeConfig = {
+const config = {
   logo: <span style={{ fontWeight: 700, fontSize: '1.5rem' }}>Humanet</span>,
   project: {
     link: 'https://github.com/TheFakeCreator/.humanet',

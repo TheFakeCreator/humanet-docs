@@ -31,35 +31,40 @@ npm start
 ## Documentation Structure
 
 ```
-pages/
-├── index.mdx                    # Home page
-├── getting-started.mdx          # Getting started guide
-├── concepts/                    # Core concepts
-│   ├── idea-repositories.mdx
-│   ├── lifecycle-management.mdx
-│   ├── idea-evolution.mdx
-│   ├── knowledge-graph.mdx
-│   ├── collaboration.mdx
-│   └── quality-control.mdx
-├── standards/                   # Standards & guidelines
-│   ├── overview.mdx
-│   ├── diagramming.mdx
-│   └── documentation.mdx
-├── guides/                      # How-to guides
-│   ├── create-first-idea.mdx
-│   ├── contributing.mdx
-│   └── lifecycle-progression.mdx
-└── reference/                   # Reference documentation
-    ├── lifecycle-states.mdx
-    ├── required-files.mdx
-    └── evaluation-criteria.mdx
+app/
+├── page.mdx                           # Home page
+├── layout.tsx                         # Root layout with Nextra theme
+├── getting-started/
+│   └── page.mdx                       # Getting started guide
+├── concepts/                          # Core concepts
+│   ├── idea-repositories/
+│   │   └── page.mdx
+│   ├── lifecycle-management/
+│   │   └── page.mdx
+│   └── _meta.json
+├── standards/                         # Standards & guidelines
+│   ├── overview/
+│   │   └── page.mdx
+│   ├── diagramming/
+│   │   └── page.mdx
+│   └── _meta.json
+├── guides/                            # How-to guides
+│   ├── create-first-idea/
+│   │   └── page.mdx
+│   └── _meta.json
+├── reference/                         # Reference documentation
+│   ├── cli/
+│   │   └── page.mdx
+│   └── _meta.json
+└── _meta.json                         # Root navigation
 ```
 
 ## Tech Stack
 
-- **Framework:** [Next.js 14](https://nextjs.org/)
-- **Documentation:** [Nextra](https://nextra.site/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Framework:** [Next.js 16](https://nextjs.org/) with App Router
+- **Documentation:** [Nextra 4](https://nextra.site/)
+- **Theme:** [Nextra Docs Theme 4](https://nextra.site/docs/docs-theme/start)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
 - **Language:** TypeScript
 
 ## Contributing
@@ -68,18 +73,21 @@ This is an alpha version of the Humanet documentation. We welcome contributions!
 
 ### Adding Pages
 
-1. Create a new `.mdx` file in the appropriate directory
-2. Add frontmatter with title
+1. Create a new folder in the appropriate directory
+2. Add a `page.mdx` file inside the folder
 3. Update `_meta.json` to include the new page in navigation
 
 Example:
 
-```mdx
----
-title: Your Page Title
----
+```bash
+# Create new page
+mkdir app/concepts/new-concept
+echo "# New Concept" > app/concepts/new-concept/page.mdx
+```
 
-# Your Page Title
+```mdx
+# app/concepts/new-concept/page.mdx
+# New Concept
 
 Your content here...
 ```
@@ -90,16 +98,17 @@ Edit `_meta.json` files to control sidebar navigation:
 
 ```json
 {
-  "page-slug": "Display Name",
+  "new-concept": "New Concept Title",
   "another-page": "Another Page"
 }
 ```
 
 ## Styling
 
-This site uses Tailwind CSS. The theme configuration is in:
+This site uses Tailwind CSS 4. The configuration files are:
+- `app/globals.css` - Global styles with Tailwind import
 - `tailwind.config.js` - Tailwind configuration
-- `theme.config.tsx` - Nextra theme configuration
+- `app/layout.tsx` - Root layout with Nextra theme components
 
 ## License
 

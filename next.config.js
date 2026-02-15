@@ -1,13 +1,22 @@
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
+import nextra from 'nextra';
+
+const withNextra = nextra({
   defaultShowCopyCode: true,
   latex: true,
 });
 
-module.exports = withNextra({
+export default withNextra({
   reactStrictMode: true,
   images: {
     unoptimized: true,
   },
+  experimental: {
+    mdxRs: true,
+  },
+  turbopack: {
+    resolveAlias: {
+      // Path to your `mdx-components` file with extension
+      'next-mdx-import-source-file': './mdx-components.tsx'
+    }
+  }
 });
